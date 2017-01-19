@@ -16,16 +16,40 @@ public class decisionMaker extends MathMethods{
 
     public double v1, v1x, v1y, v2, v2y, dx,
      dy, t, a, theta1, theta2;
+    public int num;
+    public String unknown;
+    String[] varNameArray = {"v1","v1x","v1y","v2","v2y","dx","dy","t","a","theta1","theta2"};
+    String[] knownVals;
     
     public decisionMaker(String unknownVar, int numVar, String[] varName, double[] varValue){
+        
+        //Set values for variables
+        num = numVar;
+        unknown = unknownVar;
+        
+        knownVals = new String[num];
+        
+        //Set all values in varName array to known vals array
+        for(int i=0; i<varName.length; i++){
+            varName[i] = knownVals[i];
+        }
+        
+        //Set variable values *Ensure that values input by user go in this order in array
+        varValue[0] = v1;
+        varValue[1] = v1x;
+        varValue[2] = v1y;
+        varValue[3] = v2;
+        varValue[4] = v2y;
+        varValue[5] = dx;
+        varValue[6] = dy;
+        varValue[7] = t;
+        varValue[8] = a;
+        varValue[9] = theta1;
+        varValue[10] = theta2;
         
     } 
     
     public void decisionStatements() {
-        // TODO code application logic here
-
-        
-      
 
         //System.out.println("Welcome to the Cannon of Physics! Here you can easily solve projectile motion problems!");
         //System.out.println("These are a list of variables you can input (Input short form):\nv1 - Initial Velocity\nv1x - Initial x Velocity\nv1y - Initial y Velocity\n"
@@ -39,35 +63,21 @@ public class decisionMaker extends MathMethods{
         //Ask for the symbol for each variable they have (string)
         //Get the value for each variable (double)
         //Go through steps to determine which equation to use
-        
-        //The variable the user wants to find
-        String unknownVar = "v2";
-        
-        //Set to lower case
-        unknownVar.toLowerCase();
-        //The number of variables the user knows *Set for testing*
-        int numVar = 2;
-        //Array to store the name of the variables known
-        String[] knownVal = new String[numVar];
-        //For testing purposes *When taking input remember to set all values to lower case
-        knownVal[0] = "v1x";
-        knownVal[1] = "v2y";
+
+
         
         //Mega string to hold the ordered sequence of variables the user knows
         String megaString = ""; 
         
         //For loop the size of the array
-        for(int i=0;i<knownVal.length;i++ ){
+        for(int i=0;i<knownVals.length;i++ ){
             //Add each element to the megastring
-            megaString += knownVal[i];
+            megaString += knownVals[i];
         }
 
-        //Testing
-        v1x = 4;
-        v2y = 3;
         
         //IF THE USER INPUTS MORE INFO THEN NEEDED WE COULD DO .CONTAINS TO CHECK IF THE MEGASTRING CONTAINS THE VARIABLES NEEDED EVEN IF IT HAS EXTRA
-        if(unknownVar == "v1"){
+        if(unknown == "v1"){
             switch(megaString){
                 //For the case of any equation, run corresponding method
                 case "theta1v1y": v1 = oppThetaOFhyp(v1y,theta1);
@@ -79,7 +89,7 @@ public class decisionMaker extends MathMethods{
                 //Cant you find the initial velocity knowing v1x and v1y and theta
             }
         }
-        else if(unknownVar == "v1x"){
+        else if(unknown == "v1x"){
             switch(megaString){
                 //For the case of any equation, run corresponding method
                 case "dxt":v1x = dxtOFv1x(dx,t) ;
@@ -92,7 +102,7 @@ public class decisionMaker extends MathMethods{
                 break;
             }
         }
-        else if(unknownVar == "v1y"){
+        else if(unknown == "v1y"){
             switch(megaString){
                 //For the case of any equation, run corresponding method
                 case "adyt": v1y= dytaOFv1y(dy,t,a);
@@ -109,7 +119,7 @@ public class decisionMaker extends MathMethods{
                 break;
             }
         }
-        else if(unknownVar == "v2"){
+        else if(unknown == "v2"){
             switch(megaString){
                 //For the case of any equation, run corresponding method
                 case "theta2v2y": v2 = oppThetaOFhyp(v2y,theta2);
@@ -120,7 +130,7 @@ public class decisionMaker extends MathMethods{
                 break;
             }
         }
-        else if(unknownVar == "v2y"){
+        else if(unknown == "v2y"){
             switch(megaString){
                 //For the case of any equation, run corresponding method
                 case "adyt": v2y=dytaOFv2y(dy,t,a);
@@ -137,14 +147,14 @@ public class decisionMaker extends MathMethods{
                 break;
             }
         }
-        else if(unknownVar == "dx"){
+        else if(unknown == "dx"){
             switch(megaString){
                 //For the case of any equation, run corresponding method
                 case "tv1x": dx = tv1xOFdx(t,v1x);
                 break;
             }
         }
-        else if(unknownVar == "dy"){
+        else if(unknown == "dy"){
             switch(megaString){
                 //For the case of any equation, run corresponding method
                 case "atv1y": dy=v1ytaOFdy(v1y,t,a);
@@ -157,7 +167,7 @@ public class decisionMaker extends MathMethods{
                 break;
             }
         }
-        else if(unknownVar == "t"){
+        else if(unknown == "t"){
             switch(megaString){
                 //For the case of any equation, run corresponding method
                 case "dxv1x": t=dxv1xOFt(dx,v1x);
@@ -172,7 +182,7 @@ public class decisionMaker extends MathMethods{
                 break;
             }
         }
-        else if(unknownVar == "a"){
+        else if(unknown == "a"){
             switch(megaString){
                 //For the case of any equation, run corresponding method
                 case "dytv1y": a=dyv1ytOFa(dy,t,v1y);
@@ -185,7 +195,7 @@ public class decisionMaker extends MathMethods{
                 break;
             }
         }
-        else if(unknownVar == "theta1"){
+        else if(unknown == "theta1"){
             switch(megaString){
                 //For the case of any equation, run corresponding method
                 case "v1xv1y": theta1=oppAdjOFtheta(v1x,v1y);
@@ -196,7 +206,7 @@ public class decisionMaker extends MathMethods{
                 break;
             }
         }
-        else if(unknownVar == "theta2"){
+        else if(unknown == "theta2"){
             switch(megaString){
                 //For the case of any equation, run corresponding method
                 case "v1xv2y": theta2=oppAdjOFtheta(v1x,v2y);
