@@ -13,13 +13,14 @@ public class CulminatingCannon {
     public static void main(String[] args) {
         // DECLARATIONS / INITIALZATIONS
         String unknownVar;
+        
         int numVar = 0;
         String[] varName = new String[numVar];
         double[] varValue = new double[numVar];
 
-        decisionMaker awnser = new decisionMaker();
-        
-        awnser.decisionStatements();
+        MainMenu menu = new MainMenu();
+        menu.main(args);
+   
                 
     } 
 }
