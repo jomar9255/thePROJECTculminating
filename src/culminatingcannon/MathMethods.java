@@ -354,6 +354,7 @@ public abstract class MathMethods {
     public static double pythagFORHypotenuse(double adj, double opp){
         return Math.sqrt((adj*adj)+(opp*opp)); // using pythagoras' theorem to obtain the hypotenuse
         //Make sure to include theta1 in the final velocity
+
     }
     
     /**

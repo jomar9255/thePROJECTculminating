@@ -13,16 +13,26 @@ public class CulminatingCannon {
     public static void main(String[] args) {
         // DECLARATIONS / INITIALZATIONS
         
-
+        double solution;
         String unknownVar = "";
         int numVar = 0;
         double v1, v1x, v1y, v2, v2y, dx, dy, t, a, theta1, theta2;
-        String[] varName = new String[numVar];
-        double[] varValue = new double[numVar];
+        String varName = "";
+        //double[] varValue = new double[numVar];
+        double[] varValue = {0,10,0,0,5,0,0,0,0,0,0};
+        
+        unknownVar = "v2";
+        numVar = 2;
+        varName = "v1xv2y";
+
+        //In GUI the user will input info in alphabetical order and each variable they
+        //are using will be added to a megastring
 
         decisionMaker awnser = new decisionMaker(unknownVar, numVar, varName, varValue);
         
-        awnser.decisionStatements();
+        solution = awnser.decisionStatements();
+        
+        System.out.println(solution);
                 
     } 
 }
