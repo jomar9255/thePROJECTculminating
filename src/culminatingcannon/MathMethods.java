@@ -11,7 +11,16 @@ package culminatingcannon;
  * @author wipri9236
  */
 public abstract class MathMethods {
+    //Superclass math methods that will not actually be called to
+    //Subclass decisionMaker will use the various math equations in this class
+    //To reach an awnser and return that value
     
+    
+    /**
+    * pre: xdisplacement and time
+    * post: initial x velocity
+    * Method to return the initial x velocity
+    */
     public static double dxtOFv1x(double dx, double t){
         // DECLARE A CONSTANT SPEED VARIABLE
         double v1x;
@@ -23,6 +32,11 @@ public abstract class MathMethods {
         return v1x;
     }
     
+    /**
+    * pre: x displacement and initial x velocity
+    * post: time
+    * Method to return the time
+    */
     public static double dxv1xOFt(double dx, double v1x){
         // DECLARE A DELTA TIME VARIABLE
         double t;
@@ -34,6 +48,11 @@ public abstract class MathMethods {
         return t;
     }
     
+    /**
+    * pre: time and initial x velocity
+    * post: x displacement
+    * Method to return the x displacement
+    */
     public static double tv1xOFdx(double t, double v1x){
         // DECLARE A DELTA DISPLACEMENT
         double dx;
@@ -49,7 +68,11 @@ public abstract class MathMethods {
     // THIS IS SECTION 1 FOR PROJECTILE MOTION
     // IT USES THE FORMULA d = v1*t + 1/2 * a * t *t
 
-    
+    /**
+    * pre: initial y velocity, time, and acceleration
+    * post: y displacement
+    * Method to return the y displacement
+    */
     public static double v1ytaOFdy(double v1y,double t,double a){
         // DECLARE Δ DISPLACEMENT VARIABLE
         double dy;
@@ -61,6 +84,11 @@ public abstract class MathMethods {
         return dy;
     }
     
+    /**
+    * pre: y displacement, time, and acceleration
+    * post: initial y velocity
+    * Method to return the initial y velocity
+    */
     public static double dytaOFv1y(double dy,double t,double a){
         // DECLARE initial speed
         double v1y;
@@ -72,6 +100,11 @@ public abstract class MathMethods {
         return v1y;
     }
     
+    /**
+    * pre: y displacement, time, and initial y velocity
+    * post: acceleration
+    * Method to return the acceleration
+    */
     public static double dyv1ytOFa(double dy,double t,double v1y){
         // DECLARE ACCELERATION VARIABLE
         double a;
@@ -83,6 +116,11 @@ public abstract class MathMethods {
         return a;
     }
     
+    /**
+    * pre: y displacement, acceleration, and initial y velocity
+    * post: time
+    * Method to return the time
+    */
     public static double dyv1yaOFt(double dy,double a,double v1y){
         // DECLARE ACCELERATION VARIABLE
         double t1, t2;
@@ -105,6 +143,12 @@ public abstract class MathMethods {
     
     // THIS IS SECTION 1 FOR PROJECTILE MOTION
     // IT USES THE FORMULA d = v2*t - 1/2 * a * t *t
+    
+    /**
+    * pre: final y velocity, time, and acceleration
+    * post: y displacement
+    * Method to return the y displacement
+    */
     public static double v2ytaOFdy(double v2y,double t,double a){
         // DECLARE Δ DISPLACEMENT VARIABLE
         double dy;
@@ -116,6 +160,11 @@ public abstract class MathMethods {
         return dy;
     }
     
+    /**
+    * pre: y displacement, time, and acceleration
+    * post: final y velocity
+    * Method to return the final y velocity
+    */
     public static double dytaOFv2y(double dy,double t,double a){
         // DECLARE FINAL VELOCITY VARIBALE
         double v2y;
@@ -127,6 +176,11 @@ public abstract class MathMethods {
         return v2y;
     }
     
+    /**
+    * pre: y displacement, final y velocity, and acceleration
+    * post: time
+    * Method to return the time
+    */
     public static double dyv2yaOFt(double dy,double v2y,double a){
         // DECLARE FINAL VELOCITY VARIBALE
         double t1, t2, trueTime = 0;
@@ -146,6 +200,11 @@ public abstract class MathMethods {
         return trueTime;
     }
     
+    /**
+    * pre: y displacement, final y velocity, and time
+    * post: acceleration
+    * Method to return the acceleration
+    */
     public static double dyv2ytOFa(double dy,double v2y,double t){
         // DECLARE ACCELERATION VARIABLE
         double a;
@@ -159,6 +218,12 @@ public abstract class MathMethods {
     
     //Method to solve for the final velocity given the initial velocity, acceleration, and time
     //Uses the formula v2=v1+at
+    
+    /**
+    * pre: initial y velocity, acceleration, and time
+    * post: final y velocity
+    * Method to return the final y velocity
+    */
     public static double v1yatOFv2y(double v1y, double a, double t){
         //Variable to be solved for
         double v2y;
