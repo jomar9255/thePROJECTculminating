@@ -126,7 +126,7 @@ public class decisionMaker extends MathMethods{
                 break;
                 case "theta2v1x": awnser = adjThetaOFopp(v1x,theta2);
                 break;
-                case "v1xv2": awnser = pythagFORSidelength(v2,v1y);
+                case "v1xv2": awnser = pythagFORSidelength(v2,v1x);
                 break;
             }
         }
